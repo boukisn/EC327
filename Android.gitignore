@@ -12,7 +12,7 @@
 bin/
 gen/
 .metadata
-.stackdump
+*.stackdump
 
 # Gradle files
 .gradle/
