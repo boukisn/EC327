@@ -1,6 +1,6 @@
 public String goodbyefunc()
 {
-	String greeting = "Goodbye boop!";
+	String greeting = "Goodbye brah";
 	
 	return geeting;
 	
