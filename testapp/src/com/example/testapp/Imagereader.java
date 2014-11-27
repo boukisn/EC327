@@ -17,6 +17,7 @@ public class Imagereader {
 	public int width;
 	public int[] pixels = new int[1];
 	
+	
 	public void pixelize(){
 		
 		
@@ -35,17 +36,37 @@ public class Imagereader {
 		}
 	}
 		
-	public void output(){
+	public void output(int dimen){
+		
+		if (dimen == 1)
+		{
+			
+			for(int i =0; i < pixels.length; i++)
+			{
+				if (pixels[i] != -1)
+				Log.d("Pixels", "Pixel is :"+pixels[i]);
+				
+			}
+		}
+		else if (dimen == 2)
+		{
+			//Log.d("Pixels", "Pixel is :"+pixel2D[25]);
+		}
 		
 	
-		for(int i =0; i < pixels.length; i++)
+	}
+	public void dimensionfy(){
+		
+		int pixel2D[][] = new int[height][width];
+		
+		for(int i=0; i < height; i++)
 		{
-			if (pixels[i] != -1)
-			Log.d("Pixels", "Pixel is :"+pixels[i]);
-			
+			for(int j=0; j< width; j++)
+			{
+				pixel2D[i][j]= pixels[j + (i*width)];
+			}
 		}
 	}
-		
 	
 			
 		

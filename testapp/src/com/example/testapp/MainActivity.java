@@ -14,7 +14,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Imagereader image = new Imagereader();
         image.pixelize();
-        image.output();
+        image.dimensionfy();
+        //image.output(2);
     }
 
 
