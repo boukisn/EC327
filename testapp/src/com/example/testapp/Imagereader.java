@@ -22,9 +22,9 @@ public class Imagereader {
 		pixels = new int[height*width];
 		
 		bmp.getPixels(pixels, 0, width, 1, 1, width - 1, height - 1);
-		/*ArrayList<Integer> colors = new ArrayList<Integer>();
+		ArrayList<Integer> colors = new ArrayList<Integer>();
 		
-		for(int i =0; i < pixels.length; i++)
+		for(int i =0; i < 100; i++)
 		{
 			if(colors.size() == 0)
 				colors.add(pixels[i]);
@@ -42,7 +42,9 @@ public class Imagereader {
 		
 		for(int j = 0; j < colors.size(); j++)
 		{
-				System.out.print(colors.get(j) + ", ");*/
+				System.out.print(colors.get(j) + ", ");
+				
+		}
 		
 	
 	
