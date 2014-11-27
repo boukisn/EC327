@@ -42,12 +42,17 @@ public class Imagereader {
 		
 		//System.out.print("Colors: ");
 		Log.i("OutPut", "Colors: ");
+		Integer size = pixels.length;
+		String f = size.toString();
+		Log.i("OutPut", f);
 		
-		for(int j = 0; j < colors.size(); j++)
+		/*for(int j = 0; j < colors.size(); j++)
 		{
-				Log.i("OutPut", colors.get(j) + ", ");
+				Integer msg = colors.get(j);
+				String str1= msg.toString();
+				Log.i("OutPut", str1 + ", ");
 				
-		}
+		}*/
 		
 	
 	
