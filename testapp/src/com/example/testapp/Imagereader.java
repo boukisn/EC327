@@ -4,6 +4,7 @@ package com.example.testapp;
 import android.graphics.Bitmap;
 import java.util.*;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 
 import java.io.File;
@@ -23,6 +24,7 @@ public class Imagereader {
 		
 		bmp.getPixels(pixels, 0, width, 1, 1, width - 1, height - 1);
 		ArrayList<Integer> colors = new ArrayList<Integer>();
+		//Log.i("OutPut", "Colors: ");
 		
 		for(int i =0; i < 100; i++)
 		{
@@ -38,11 +40,12 @@ public class Imagereader {
 			}
 		}
 		
-		System.out.print("Colors: ");
+		//System.out.print("Colors: ");
+		Log.i("OutPut", "Colors: ");
 		
 		for(int j = 0; j < colors.size(); j++)
 		{
-				System.out.print(colors.get(j) + ", ");
+				Log.i("OutPut", colors.get(j) + ", ");
 				
 		}
 		
