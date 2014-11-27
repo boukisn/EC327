@@ -12,14 +12,19 @@ import java.io.File;
 
 public class Imagereader {
 	
-	public void foo(){
+	public Bitmap bmp;
+	public int height;
+	public int width;
+	public int[] pixels = new int[1];
+	
+	public void pixelize(){
 		
-		int[] pixels = new int[1];
+		
 		File file = new File("/storage/emulated/0/Download/ScheduleImageServlet.gif");
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		Bitmap bmp = BitmapFactory.decodeFile(file.getAbsolutePath().toString(), options);
-		int height = bmp.getHeight();
-		int width =  bmp.getWidth();
+		bmp = BitmapFactory.decodeFile(file.getAbsolutePath().toString(), options);
+		height = bmp.getHeight();
+		width =  bmp.getWidth();
 		if(bmp !=null)
 		{
 			pixels = new int[height*width];

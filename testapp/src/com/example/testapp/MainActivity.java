@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Imagereader image = new Imagereader();
-        image.foo();
+        image.pixelize();
     }
 
 
