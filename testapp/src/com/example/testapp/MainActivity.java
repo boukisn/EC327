@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
         Imagereader image = new Imagereader();
         image.pixelize();
         image.dimensionfy();
+        image.show_bit();
         //image.output(2);
     }
 

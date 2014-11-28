@@ -5,12 +5,16 @@ import android.graphics.Bitmap;
 import java.util.*;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.widget.ImageView;
+import android.app.Activity;
+
 
 
 import java.io.File;
 
 
-public class Imagereader {
+public class Imagereader extends Activity{
+	
 	
 	public Bitmap bmp;
 	public int height;
@@ -66,6 +70,13 @@ public class Imagereader {
 				pixel2D[i][j]= pixels[j + (i*width)];
 			}
 		}
+	}
+	
+	
+	public void show_bit()
+	{
+		ImageView iv = (ImageView)findViewById(R.id.imageView1);
+		iv.setImageBitmap(bmp);
 	}
 	
 			
