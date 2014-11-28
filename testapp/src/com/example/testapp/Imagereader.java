@@ -4,6 +4,7 @@ package com.example.testapp;
 import android.graphics.Bitmap;
 import java.util.*;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.app.Activity;
@@ -20,6 +21,7 @@ public class Imagereader extends Activity{
 	public int height;
 	public int width;
 	public int[] pixels = new int[1];
+	public ImageView iv;
 	
 	
 	public void pixelize(){
@@ -73,11 +75,16 @@ public class Imagereader extends Activity{
 	}
 	
 	
-	public void show_bit()
-	{
-		ImageView iv = (ImageView)findViewById(R.id.imageView1);
+	/*@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		
 		iv.setImageBitmap(bmp);
-	}
+		
+		
+	}*/
 	
 			
 		

@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 
 public class MainActivity extends Activity {
+	ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +17,10 @@ public class MainActivity extends Activity {
         Imagereader image = new Imagereader();
         image.pixelize();
         image.dimensionfy();
-        image.show_bit();
+        iv = (ImageView)findViewById(R.id.imageView1);
+        iv.setImageBitmap(image.bmp);
+        
+        //image.show_bit();
         //image.output(2);
     }
 
