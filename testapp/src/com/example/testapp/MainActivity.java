@@ -17,11 +17,12 @@ public class MainActivity extends Activity {
         Imagereader image = new Imagereader();
         image.pixelize();
         image.dimensionfy();
-        image.getRectangle();
-        image.getPixels(image.rect);
-        image.output(1);
+        //image.getRectangle();
+        image.crop();
+        image.getPixels(image.rebmp);
+        image.output(2);
         iv = (ImageView)findViewById(R.id.imageView1);
-        iv.setImageBitmap(image.rect);
+        iv.setImageBitmap(image.rebmp);
         
         //image.show_bit();
         //image.output(2);
