@@ -17,8 +17,9 @@ public class MainActivity extends Activity {
         Imagereader image = new Imagereader();
         image.pixelize();
         image.dimensionfy();
+        image.getRectangle();
         iv = (ImageView)findViewById(R.id.imageView1);
-        iv.setImageBitmap(image.bmp);
+        iv.setImageBitmap(image.rect);
         
         //image.show_bit();
         //image.output(2);

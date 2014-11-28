@@ -18,6 +18,8 @@ public class Imagereader extends Activity{
 	
 	
 	public Bitmap bmp;
+	public Bitmap rebmp;
+	public Bitmap rect;
 	public int height;
 	public int width;
 	public int[] pixels = new int[1];
@@ -72,6 +74,23 @@ public class Imagereader extends Activity{
 				pixel2D[i][j]= pixels[j + (i*width)];
 			}
 		}
+	}
+	
+	public void crop()
+	{
+		rebmp = Bitmap.createBitmap(bmp, 55, 20, width-195, height-50);
+		Log.i("height",height + "");
+		Log.i("width",width + "");
+	}
+	
+	public void getRectangle()//gets rectangle
+	{
+		rect = Bitmap.createBitmap(bmp, 120, 140, width-565, height-363);
+		height = rect.getHeight();
+		width =  rect.getWidth();
+		Log.i("height",height + "");
+		Log.i("width",width + "");
+	
 	}
 	
 	
