@@ -4,8 +4,11 @@ package com.example.testapp;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
-import android.widget.ImageView;
 import android.app.Activity;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -22,6 +25,7 @@ public class Imagereader extends Activity{
 	public int width;
 	public int[] pixels = new int[1]; // pixals of 
 	public int[] pixar= new int[1];
+	public HashMap<Integer, Integer> color_count = new HashMap<Integer, Integer>();
 	
 	
 	public void pixelize(){ // sets bitmap of whole image and saves it to pixals
@@ -47,7 +51,7 @@ public class Imagereader extends Activity{
 		if (dimen == 1)
 		{
 			int count = 0;
-			for(int i =0; i < pixels.length; i++)//6096 is about 4 hours
+			for(int i =0; i < pixels.length; i++)//5856 is about 4 hours
 			{
 				if (pixels[i] == -65332)
 				{
@@ -59,19 +63,26 @@ public class Imagereader extends Activity{
 		}
 		else if (dimen == 2)
 		{
-			int count = 0;
+			
+			
 			for(int i =0; i < pixar.length; i++)//rectangle is about 61 pixels in width
 			{
-				
-				if (pixar[i] == -65332)
+				if (pixar[i] != -1)
 				{
-					count++;
+					if (color_count.containsKey(pixar[i]))
+					{
+						color_count.put(pixar[i], color_count.get(pixar[i])+1);
+					}
+					else
+					{
+						color_count.put(pixar[i], 1);
+					}
 				}
 				
 				//Log.d("Pixels", "Pixel is :"+ pixar[i]);
 				
 			}
-			Log.i("Pixal Count", count + "");
+			Log.i("Pixal Count", color_count.get(-65332) + "");
 		}
 		
 	
