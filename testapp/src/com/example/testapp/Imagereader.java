@@ -2,9 +2,7 @@ package com.example.testapp;
 
 
 import android.graphics.Bitmap;
-import java.util.*;
 import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.app.Activity;
@@ -23,6 +21,7 @@ public class Imagereader extends Activity{
 	public int height;
 	public int width;
 	public int[] pixels = new int[1];
+	public int[] pixar= new int[1];
 	public ImageView iv;
 	
 	
@@ -48,17 +47,32 @@ public class Imagereader extends Activity{
 		
 		if (dimen == 1)
 		{
-			
+			int count = 0;
 			for(int i =0; i < pixels.length; i++)
 			{
-				if (pixels[i] != -1)
-				Log.d("Pixels", "Pixel is :"+pixels[i]);
+				if (pixels[i] == -65332)
+				{
+					count++;
+				}
 				
 			}
+			Log.i("Pixal Count", count + "");
 		}
 		else if (dimen == 2)
 		{
-			//Log.d("Pixels", "Pixel is :"+pixel2D[25]);
+			int count = 0;
+			for(int i =0; i < pixar.length; i++)//rectangle is about 61 pixels long
+			{
+				
+				if (pixar[i] == -65332)
+				{
+					count++;
+				}
+				
+				//Log.d("Pixels", "Pixel is :"+ pixar[i]);
+				
+			}
+			Log.i("Pixal Count", count + "");
 		}
 		
 	
@@ -93,17 +107,16 @@ public class Imagereader extends Activity{
 	
 	}
 	
+	public void getPixels(Bitmap img)
+	{
+		pixar = new int[img.getHeight()*img.getWidth()];
+		
+		img.getPixels(pixar, 0, img.getWidth(), 0, 0, img.getWidth() , img.getHeight());
+		//ArrayList<Integer> colors = new ArrayList<Integer>();
+	}
 	
-	/*@Override
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		
-		
-		iv.setImageBitmap(bmp);
-		
-		
-	}*/
+	
+
 	
 			
 		

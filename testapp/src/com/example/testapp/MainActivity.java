@@ -18,6 +18,8 @@ public class MainActivity extends Activity {
         image.pixelize();
         image.dimensionfy();
         image.getRectangle();
+        image.getPixels(image.rect);
+        image.output(1);
         iv = (ImageView)findViewById(R.id.imageView1);
         iv.setImageBitmap(image.rect);
         
