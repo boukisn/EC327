@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 
@@ -67,7 +68,7 @@ public class Imagereader extends Activity{
 			
 			for(int i =0; i < pixar.length; i++)//rectangle is about 61 pixels in width
 			{
-				if (pixar[i] != -1)
+				if ((pixar[i] != -1) && (pixar[i] != -3355444))//excludes white and gray colors
 				{
 					if (color_count.containsKey(pixar[i]))
 					{
@@ -83,6 +84,12 @@ public class Imagereader extends Activity{
 				
 			}
 			Log.i("Pixal Count", color_count.get(-65332) + "");
+			Set<Integer> keyset = color_count.keySet();
+			for(Integer s: keyset)//displays how many pixels of each color
+			{
+				Log.i(s+ "", color_count.get(s)+"");
+			}
+			//Log.i("Keys",keyset  + "" );
 		}
 		
 	
