@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.app.Activity;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +25,11 @@ public class Imagereader extends Activity{
 	public Bitmap rect;//bitmap of 2 hour time period
 	public int height;
 	public int width;
+	public int nheight;
+	public int nwidth;
 	public int[] pixels = new int[1]; // pixals of 
 	public int[] pixar= new int[1];
+	public int[][]pixel2D = new int[1][1];
 	public HashMap<Integer, Integer> color_count = new HashMap<Integer, Integer>();
 	
 	
@@ -96,13 +100,13 @@ public class Imagereader extends Activity{
 	}
 	public void dimensionfy(){// ignore this for now
 		
-		int pixel2D[][] = new int[height][width];
+		pixel2D = new int[nheight][nwidth];
 		
-		for(int i=0; i < height; i++)
+		for(int i=0; i < nheight; i++)
 		{
-			for(int j=0; j< width; j++)
+			for(int j=0; j< nwidth; j++)
 			{
-				pixel2D[i][j]= pixels[j + (i*width)];
+				pixel2D[i][j]= pixar[j + (i*nwidth)];
 			}
 		}
 	}
@@ -112,6 +116,8 @@ public class Imagereader extends Activity{
 		rebmp = Bitmap.createBitmap(bmp, 55, 20, width-195, height-50);
 		Log.i("height",height + "");
 		Log.i("width",width + "");
+		nheight = rebmp.getHeight();
+		nwidth =  rebmp.getWidth();
 	}
 	
 	public void getRectangle()//gets rectangle(2 hour pink rectangle)
@@ -132,7 +138,34 @@ public class Imagereader extends Activity{
 		//ArrayList<Integer> colors = new ArrayList<Integer>();
 	}
 	
-	
+	public void get2Darray()
+	{
+		//Log.i("array", Arrays.deepToString(pixel2D));
+		for(int i=0; i < nheight; i++)
+		{
+			for(int j=0; j< nwidth; j++)
+			{
+				int count = 0;
+				if (pixel2D[i][j] == -65332)
+				{
+					count++;
+					if(count == 1)
+					{
+						Log.i("start", i+ "");
+					}
+					else if (count == 5856)
+					{
+						Log.i("end", i+ "");
+					}
+				}
+				else
+				{
+					
+				}
+				
+			}
+		}
+	}
 
 	
 			

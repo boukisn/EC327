@@ -20,7 +20,9 @@ public class MainActivity extends Activity {
         //image.getRectangle();
         image.crop();
         image.getPixels(image.rebmp);
+        image.dimensionfy();
         image.output(2);
+        image.get2Darray();
         iv = (ImageView)findViewById(R.id.imageView1);
         iv.setImageBitmap(image.rebmp);
         
