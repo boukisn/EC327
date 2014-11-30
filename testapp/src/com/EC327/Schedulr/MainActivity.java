@@ -1,4 +1,6 @@
-package com.example.testapp;
+package com.EC327.Schedulr;
+
+import com.example.testapp.R;
 
 import android.app.Activity;
 import android.os.Bundle;
