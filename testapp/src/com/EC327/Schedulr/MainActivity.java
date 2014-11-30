@@ -1,4 +1,9 @@
 package com.EC327.Schedulr;
+<<<<<<< HEAD:testapp/src/com/EC327/Schedulr/MainActivity.java
+=======
+
+import com.example.testapp.R;
+>>>>>>> 25459417354054a235f3ec1529fcf93d56beeb43:testapp/src/com/EC327/Schedulr/MainActivity.java
 
 import java.util.Collections;
 
