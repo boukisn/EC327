@@ -140,12 +140,13 @@ public class Imagereader extends Activity{
 	
 	public void get2Darray()
 	{
+		int count = 0;
 		//Log.i("array", Arrays.deepToString(pixel2D));
 		for(int i=0; i < nheight; i++)
 		{
 			for(int j=0; j< nwidth; j++)
 			{
-				int count = 0;
+				
 				if (pixel2D[i][j] == -65332)
 				{
 					count++;
