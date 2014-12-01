@@ -203,13 +203,13 @@ public class Imagereader extends Activity{
 		}
 	}
 	
-	public void getHMday()
+	public void getHMday()//creates hashmap for each day with how many of each color pixel in each line
 	{
 		for(int i=0; i < nheight; i++)
 		{
 			for(int j=0; j< nwidth; j++)
 			{
-				if (j== 30)
+				if (j== 30)//Sunday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -223,7 +223,7 @@ public class Imagereader extends Activity{
 						}
 					}
 				}
-				else if (j ==92)
+				else if (j ==92)//Monday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -237,7 +237,7 @@ public class Imagereader extends Activity{
 						}
 					}
 				}
-				else if (j == 154)
+				else if (j == 154)//Tuesday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -251,7 +251,7 @@ public class Imagereader extends Activity{
 						}
 					}
 				}
-				else if (j == 216)
+				else if (j == 216)//Wednesday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -265,7 +265,7 @@ public class Imagereader extends Activity{
 						}
 					}
 				}
-				else if (j == 278)
+				else if (j == 278)//Thursday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -280,7 +280,7 @@ public class Imagereader extends Activity{
 					}
 					
 				}
-				else if (j == 340)
+				else if (j == 340)//Friday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -295,7 +295,7 @@ public class Imagereader extends Activity{
 					}
 					
 				}
-				else if (j == 402)
+				else if (j == 402)//Saturday
 				{
 					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
 					{
@@ -324,6 +324,98 @@ public class Imagereader extends Activity{
 		}
 		
 	}
+	
+	public void get_times()
+	{
+		Set<Integer> Sukeyset = pixel_countSu.keySet();
+		Set<Integer> Mokeyset = pixel_countMo.keySet();
+		Set<Integer> Tukeyset = pixel_countTu.keySet();
+		Set<Integer> Wekeyset = pixel_countWe.keySet();
+		Set<Integer> Thkeyset = pixel_countTh.keySet();
+		Set<Integer> Frkeyset = pixel_countFr.keySet();
+		Set<Integer> Sakeyset = pixel_countSa.keySet();
+		
+		Log.i("Day", "Sunday");
+		for(Integer s: Sukeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			Log.i("hi", nheight+"");
+			for(int i=0; i < nheight; i++)
+			{
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					Log.i("hi", "hi2");
+					if (j== 30)
+					{
+						Log.i("hi1", "hi3");
+						if (pixel2D[i][j] == s)
+						{
+							
+							count++;
+							Log.i("Count", count + "");
+							if(count == 1)
+							{
+								Log.i("start", i +"");
+							
+							}
+							else if(count == pixel_countSu.get(s))
+							{
+								Log.i("end", i +"");
+							}
+						}
+					}
+				}
+			}
+				
+			
+			
+		}
+		
+		Log.i("Day", "Monday");
+		for(Integer s: Mokeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			for(int i=0; i < nheight; i++)
+			{
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					
+					if (j== 92)
+					{
+						if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))
+						{
+							//Log.i("Count",pixel2D[i][j] +"" );
+							if (pixel2D[i][j] == s)
+							{
+								//Log.i("Count", "foo");
+								count++;
+								//Log.i("Count", count + "");
+								if(count == 1)
+								{
+									Log.i("start", i +"");
+								
+								}
+								else if(count == pixel_countMo.get(s))
+								{
+									Log.i("end", i +"");
+								}
+							}
+						}
+					}
+				}
+			}
+				
+			
+			
+		}
+	
+	}
+	
+	
 
 	
 			

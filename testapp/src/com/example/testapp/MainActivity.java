@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
         image.output(2);
         //image.get2Darray();
         image.getHMday();
-        Log.i("Yay", "Sunday");
+        /*Log.i("Yay", "Sunday");
         image.outputMap(image.pixel_countSu);
         Log.i("Yay", "Monday");
         image.outputMap(image.pixel_countMo);
@@ -38,7 +38,8 @@ public class MainActivity extends Activity {
         Log.i("Yay", "Friday");
         image.outputMap(image.pixel_countFr);
         Log.i("Yay", "Saturday");
-        image.outputMap(image.pixel_countSa);
+        image.outputMap(image.pixel_countSa);*/
+        image.get_times();
         iv = (ImageView)findViewById(R.id.imageView1);
         iv.setImageBitmap(image.rebmp);
         
