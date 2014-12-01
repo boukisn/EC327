@@ -31,6 +31,14 @@ public class Imagereader extends Activity{
 	public int[] pixar= new int[1];
 	public int[][]pixel2D = new int[1][1];
 	public HashMap<Integer, Integer> color_count = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countSu = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countMo = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countTu = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countWe = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countTh = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countFr = new HashMap<Integer, Integer>();
+	public HashMap<Integer, Integer> pixel_countSa = new HashMap<Integer, Integer>();
+	
 	
 	
 	public void pixelize(){ // sets bitmap of whole image and saves it to pixals
@@ -117,7 +125,7 @@ public class Imagereader extends Activity{
 		Log.i("height",height + "");
 		Log.i("width",width + "");
 		nheight = rebmp.getHeight();
-		nwidth =  rebmp.getWidth();
+		nwidth =  rebmp.getWidth();// 436 pixels about 62 pixels a day
 	}
 	
 	public void getRectangle()//gets rectangle(2 hour pink rectangle)
@@ -141,6 +149,9 @@ public class Imagereader extends Activity{
 	public void get2Darray()
 	{
 		int count = 0;
+		int count1 = 0;
+		int count2 = 0;
+		Log.i("width", nwidth + "");
 		//Log.i("array", Arrays.deepToString(pixel2D));
 		for(int i=0; i < nheight; i++)
 		{
@@ -152,11 +163,35 @@ public class Imagereader extends Activity{
 					count++;
 					if(count == 1)
 					{
-						Log.i("start", i+ "");
+						Log.i("start1", i+ "");
 					}
 					else if (count == 5856)
 					{
-						Log.i("end", i+ "");
+						Log.i("end1", i+ "");
+					}
+				}
+				else if (pixel2D[i][j] == -6710989)
+				{
+					count1++;
+					if(count1 == 1)
+					{
+						Log.i("start2", i+ "");
+					}
+					else if (count1 == 4392)
+					{
+						Log.i("end2", i+ "");
+					}
+				}
+				else if (pixel2D[i][j] == -10079233)
+				{
+					count2++;
+					if(count2 == 1)
+					{
+						Log.i("start3", i+ "");
+					}
+					else if (count2 == 4392)
+					{
+						Log.i("end3", i+ "");
 					}
 				}
 				else
@@ -164,6 +199,17 @@ public class Imagereader extends Activity{
 					
 				}
 				
+			}
+		}
+	}
+	public void getHMday()
+	{
+		for(int i=0; i < nheight; i++)
+		{
+			for(int j=0; j< nwidth; j++)
+			{
+				
+			
 			}
 		}
 	}
