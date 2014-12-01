@@ -2,6 +2,7 @@ package com.example.testapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -22,7 +23,22 @@ public class MainActivity extends Activity {
         image.getPixels(image.rebmp);
         image.dimensionfy();
         image.output(2);
-        image.get2Darray();
+        //image.get2Darray();
+        image.getHMday();
+        Log.i("Yay", "Sunday");
+        image.outputMap(image.pixel_countSu);
+        Log.i("Yay", "Monday");
+        image.outputMap(image.pixel_countMo);
+        Log.i("Yay", "Tuesday");
+        image.outputMap(image.pixel_countTu);
+        Log.i("Yay", "Wednesday");
+        image.outputMap(image.pixel_countWe);
+        Log.i("Yay", "Thursday");
+        image.outputMap(image.pixel_countTh);
+        Log.i("Yay", "Friday");
+        image.outputMap(image.pixel_countFr);
+        Log.i("Yay", "Saturday");
+        image.outputMap(image.pixel_countSa);
         iv = (ImageView)findViewById(R.id.imageView1);
         iv.setImageBitmap(image.rebmp);
         

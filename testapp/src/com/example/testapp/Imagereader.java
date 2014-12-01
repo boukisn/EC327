@@ -202,16 +202,127 @@ public class Imagereader extends Activity{
 			}
 		}
 	}
+	
 	public void getHMday()
 	{
 		for(int i=0; i < nheight; i++)
 		{
 			for(int j=0; j< nwidth; j++)
 			{
+				if (j== 30)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countSu.containsKey(pixel2D[i][j]))
+						{
+							pixel_countSu.put(pixel2D[i][j], pixel_countSu.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countSu.put(pixel2D[i][j], 1);
+						}
+					}
+				}
+				else if (j ==92)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countMo.containsKey(pixel2D[i][j]))
+						{
+							pixel_countMo.put(pixel2D[i][j], pixel_countMo.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countMo.put(pixel2D[i][j], 1);
+						}
+					}
+				}
+				else if (j == 154)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countTu.containsKey(pixel2D[i][j]))
+						{
+							pixel_countTu.put(pixel2D[i][j], pixel_countTu.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countTu.put(pixel2D[i][j], 1);
+						}
+					}
+				}
+				else if (j == 216)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countWe.containsKey(pixel2D[i][j]))
+						{
+							pixel_countWe.put(pixel2D[i][j], pixel_countWe.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countWe.put(pixel2D[i][j], 1);
+						}
+					}
+				}
+				else if (j == 278)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countTh.containsKey(pixel2D[i][j]))
+						{
+							pixel_countTh.put(pixel2D[i][j], pixel_countTh.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countTh.put(pixel2D[i][j], 1);
+						}
+					}
+					
+				}
+				else if (j == 340)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countFr.containsKey(pixel2D[i][j]))
+						{
+							pixel_countFr.put(pixel2D[i][j], pixel_countFr.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countFr.put(pixel2D[i][j], 1);
+						}
+					}
+					
+				}
+				else if (j == 402)
+				{
+					if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))//excludes white and gray colors
+					{
+						if (pixel_countSa.containsKey(pixel2D[i][j]))
+						{
+							pixel_countSa.put(pixel2D[i][j], pixel_countSa.get(pixel2D[i][j])+1);
+						}
+						else
+						{
+							pixel_countSa.put(pixel2D[i][j], 1);
+						}
+					}
+				}
 				
 			
 			}
 		}
+	}
+	
+	public void outputMap (HashMap<Integer, Integer> m1)
+	{
+		Set<Integer> keyset = m1.keySet();
+		for(Integer s: keyset)//displays how many pixels of each color
+		{
+			Log.i(s+ "", m1.get(s)+"");
+		}
+		
 	}
 
 	
