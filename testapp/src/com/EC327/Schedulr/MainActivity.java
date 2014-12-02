@@ -16,7 +16,7 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Cal cal = new Cal();
+        Cal cal = new Cal(this);
         cal.addEvent(this);
         Log.i("HI", "blah");
     }
