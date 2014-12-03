@@ -412,6 +412,477 @@ public class Imagereader extends Activity{
 			
 			
 		}
+		Log.i("Day", "Tuesday");
+		for(Integer s: Tukeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			for(int i=0; i < nheight; i++)
+			{
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					
+					if (j== 154)
+					{
+						if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))
+						{
+							//Log.i("Count",pixel2D[i][j] +"" );
+							if (pixel2D[i][j] == s)
+							{
+								//Log.i("Count", "foo");
+								count++;
+								//Log.i("Count", count + "");
+								if(count == 1)
+								{
+									Log.i("start", i +"");
+								
+								}
+								else if(count == pixel_countTu.get(s))
+								{
+									Log.i("end", i +"");
+								}
+							}
+						}
+					}
+				}
+			}
+				
+			
+			
+		}
+		Log.i("Day", "Wednesday");
+		for(Integer s: Wekeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			for(int i=0; i < nheight; i++)
+			{
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					
+					if (j== 216)
+					{
+						if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))
+						{
+							//Log.i("Count",pixel2D[i][j] +"" );
+							if (pixel2D[i][j] == s)
+							{
+								//Log.i("Count", "foo");
+								count++;
+								//Log.i("Count", count + "");
+								if(count == 1)
+								{
+									Log.i("start", i +"");
+								
+								}
+								else if(count == pixel_countWe.get(s))
+								{
+									Log.i("end", i +"");
+								}
+							}
+						}
+					}
+				}
+			}
+				
+			
+			
+		}
+		
+		Log.i("Day", "Thursday");
+		for(Integer s: Thkeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			String s1 = "";
+			for(int i=0; i < nheight; i++)
+			{
+				
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					
+					if (j== 278)
+					{
+						if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))
+						{
+							//Log.i("Count",pixel2D[i][j] +"" );
+							if (pixel2D[i][j] == s)
+							{
+								//Log.i("Count", "foo");
+								count++;
+								//Log.i("Count", count + "");
+								if(count == 1)
+								{
+									if(i <= 5 && i>= 1 )
+									{
+										s1+="7:00AM";
+									}
+									else if(i <= 16 && i>= 11 )
+									{
+										s1+="7:30AM";
+									}
+									else if(i <= 28 && i>= 24 )
+									{
+										s1+="8:00AM";
+									}
+									else if(i <= 40 && i>= 35 )
+									{
+										s1+="8:30AM";
+									}
+									else if(i <= 52 && i>= 45 )
+									{
+										s1+="9:00AM";
+									}
+									else if(i <= 64 && i>= 59 )
+									{
+										
+										s1+="9:30AM";
+									}
+									else if(i <= 78 && i>= 71 )
+									{
+										s1+="10:00AM";
+									}
+									else if(i <= 88 && i>= 80 )
+									{
+										s1+="10:30AM";
+									}
+									else if(i <= 100 && i >= 90  )
+									{
+										s1+="11:00AM";
+									}
+									else if(i <= 115 && i>= 105 )
+									{
+										s1+="11:30AM";
+									}
+									else if(i <= 124 && i>= 118 )
+									{
+										s1+="12:00PM";
+									}
+									else if(i <= 135 && i>= 128 )
+									{
+										s1+="12:30PM";
+									}
+									else if(i <= 147 && i>= 140 )
+									{
+										s1+="1:00PM";
+									}
+									else if(i <= 159 && i>= 153 )
+									{
+										s1+="1:30PM";
+									}
+									else if(i <= 171 && i>= 164 )
+									{
+										
+										s1+="2:00PM";
+									}
+									else if(i <= 183 && i>= 175 )
+									{
+										s1+="2:30PM";
+									}
+									else if(i <= 195 && i>= 188 )
+									{
+										s1+="3:00PM";
+									}
+									else if(i <= 207 && i>= 200 )
+									{
+										s1+="3:30PM";
+									}
+									else if(i <= 219 && i>= 211 )
+									{
+										
+										s1+="4:00PM";
+									}
+									else if(i <= 231 && i>= 223 )
+									{
+										s1+="4:30PM";
+									}
+									else if(i <= 240 && i>= 234 )
+									{
+										s1+="5:00PM";
+									}
+									else if(i <= 254 && i>= 246 )
+									{
+										s1+="5:30PM";
+									}
+									else if(i <= 265 && i>= 259 )
+									{
+										s1+="6:00PM";
+									}
+									else if(i <= 276 && i>= 270 )
+									{
+										s1+="6:30PM";
+									}
+									else if(i <= 289 && i>= 282 )
+									{
+										s1+="7:00PM";
+									}
+									else if(i <= 300 && i>= 293 )
+									{
+										s1+="7:30PM";
+									}
+									else if(i <= 312 && i>= 305 )
+									{
+										s1+="8:00PM";
+									}
+									else if(i <= 324 && i>= 316 )
+									{
+										s1+="8:30PM";
+									}
+									else if(i <= 335 && i>= 328 )
+									{
+										s1+="9:00PM";
+									}
+									else if(i <= 347 && i>= 340 )
+									{
+										s1+="9:30PM";
+									}
+									else if(i <= 358 && i>= 352 )
+									{
+										s1+="10:00PM";
+									}
+									else if(i <= 370 && i>= 363 )
+									{
+										s1+="10:30PM";
+									}
+									else 
+									{
+										s1+="11:00PM";
+									}
+									
+								
+								}
+								else if(count == pixel_countTh.get(s))
+								{
+									//Log.i("end", i +"");
+									s1+=".";
+									if(i <= 5 && i>= 1 )
+									{
+										s1+="7:00AM";
+									}
+									else if(i <= 16 && i>= 11 )
+									{
+										s1+="7:30AM";
+									}
+									else if(i <= 28 && i>= 24 )
+									{
+										s1+="8:00AM";
+									}
+									else if(i <= 40 && i>= 35 )
+									{
+										s1+="8:30AM";
+									}
+									else if(i <= 52 && i>= 45 )
+									{
+										s1+="9:00AM";
+									}
+									else if(i <= 64 && i>= 59 )
+									{
+										
+										s1+="9:30AM";
+									}
+									else if(i <= 78 && i>= 71 )
+									{
+										s1+="10:00AM";
+									}
+									else if(i <= 88 && i>= 80 )
+									{
+										s1+="10:30AM";
+									}
+									else if(i <= 100 && i >= 90  )
+									{
+										s1+="11:00AM";
+									}
+									else if(i <= 115 && i>= 105 )
+									{
+										s1+="11:30AM";
+									}
+									else if(i <= 124 && i>= 118 )
+									{
+										s1+="12:00PM";
+									}
+									else if(i <= 135 && i>= 128 )
+									{
+										s1+="12:30PM";
+									}
+									else if(i <= 147 && i>= 140 )
+									{
+										s1+="1:00PM";
+									}
+									else if(i <= 159 && i>= 153 )
+									{
+										s1+="1:30PM";
+									}
+									else if(i <= 171 && i>= 164 )
+									{
+										
+										s1+="2:00PM";
+									}
+									else if(i <= 183 && i>= 175 )
+									{
+										s1+="2:30PM";
+									}
+									else if(i <= 195 && i>= 188 )
+									{
+										s1+="3:00PM";
+									}
+									else if(i <= 207 && i>= 200 )
+									{
+										s1+="3:30PM";
+									}
+									else if(i <= 219 && i>= 211 )
+									{
+										
+										s1+="4:00PM";
+									}
+									else if(i <= 231 && i>= 223 )
+									{
+										s1+="4:30PM";
+									}
+									else if(i <= 240 && i>= 234 )
+									{
+										s1+="5:00PM";
+									}
+									else if(i <= 254 && i>= 246 )
+									{
+										s1+="5:30PM";
+									}
+									else if(i <= 265 && i>= 259 )
+									{
+										s1+="6:00PM";
+									}
+									else if(i <= 276 && i>= 270 )
+									{
+										s1+="6:30PM";
+									}
+									else if(i <= 289 && i>= 282 )
+									{
+										s1+="7:00PM";
+									}
+									else if(i <= 300 && i>= 293 )
+									{
+										s1+="7:30PM";
+									}
+									else if(i <= 312 && i>= 305 )
+									{
+										s1+="8:00PM";
+									}
+									else if(i <= 324 && i>= 316 )
+									{
+										s1+="8:30PM";
+									}
+									else if(i <= 335 && i>= 328 )
+									{
+										s1+="9:00PM";
+									}
+									else if(i <= 347 && i>= 340 )
+									{
+										s1+="9:30PM";
+									}
+									else if(i <= 358 && i>= 352 )
+									{
+										s1+="10:00PM";
+									}
+									else if(i <= 370 && i>= 363 )
+									{
+										s1+="10:30PM";
+									}
+									else 
+									{
+										s1+="11:00PM";
+									}
+								}
+							}
+						}
+					}
+				}
+				
+			}
+			Log.i("Start.End", s1);	
+			
+			
+		}
+		
+		Log.i("Day", "Friday");
+		for(Integer s: Frkeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			for(int i=0; i < nheight; i++)
+			{
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					
+					if (j== 340)
+					{
+						if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))
+						{
+							//Log.i("Count",pixel2D[i][j] +"" );
+							if (pixel2D[i][j] == s)
+							{
+								//Log.i("Count", "foo");
+								count++;
+								//Log.i("Count", count + "");
+								if(count == 1)
+								{
+									Log.i("start", i +"");
+								
+								}
+								else if(count == pixel_countFr.get(s))
+								{
+									Log.i("end", i +"");
+								}
+							}
+						}
+					}
+				}
+			}
+				
+			
+			
+		}
+		Log.i("Day", "Saturday");
+		for(Integer s: Sakeyset)
+		{
+			Log.i("Color", s+ "");
+			int count = 0;
+			for(int i=0; i < nheight; i++)
+			{
+				
+				for(int j=0; j< nwidth; j++)
+				{
+					
+					if (j== 402)
+					{
+						if ((pixel2D[i][j] != -1) && (pixel2D[i][j] != -3355444))
+						{
+							//Log.i("Count",pixel2D[i][j] +"" );
+							if (pixel2D[i][j] == s)
+							{
+								//Log.i("Count", "foo");
+								count++;
+								//Log.i("Count", count + "");
+								if(count == 1)
+								{
+									Log.i("start", i +"");
+								
+								}
+								else if(count == pixel_countSa.get(s))
+								{
+									Log.i("end", i +"");
+								}
+							}
+						}
+					}
+				}
+			}
+				
+			
+			
+		}
 	
 	}
 	
