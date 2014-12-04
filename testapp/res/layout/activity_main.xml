@@ -24,6 +24,6 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
         android:text="About This App"
-        android:onClick="login" />
+        android:onClick="goToAbout" />
 
 </RelativeLayout>
