@@ -11,13 +11,23 @@
 
     <Button
         android:id="@+id/button1"
-        android:background="@layout/custom_button"
         style="@style/button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@layout/custom_button"
+        android:onClick="upload"
+        android:text="Upload my schedule"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
         android:layout_alignParentTop="true"
-        android:text="Upload"
-        android:onClick="upload" />
+        android:layout_marginTop="78dp"
+        android:text="TextView"  />
 
 </RelativeLayout>

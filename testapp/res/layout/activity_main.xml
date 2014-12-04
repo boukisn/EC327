@@ -19,20 +19,7 @@
         android:layout_centerVertical="true"
         android:onClick="login"
         android:text="Start new schedule"
-        android:textSize="25dip" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
-        android:gravity="center"
-        android:text="Schedulr."
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#6A2E4D"
-        android:textSize="100dip" />
+        android:textSize="18dip" />
 
     <Button
         android:id="@+id/button2"
@@ -44,7 +31,20 @@
         android:layout_marginTop="35dp"
         android:background="@layout/custom_button"
         android:onClick="goToAbout"
-        android:text="About this app"
-        android:textSize="25dip" />
+        android:text="Instructions"
+        android:textSize="18dip" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:text="Schedulr."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#6A2E4D"
+        android:textSize="60dip" />
 
 </RelativeLayout>
