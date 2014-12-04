@@ -35,6 +35,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp"
         android:text="Schedulr"
+        android:textColor="#EBEBEB"
+        android:textSize="70dip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
