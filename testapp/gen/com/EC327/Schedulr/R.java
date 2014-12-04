@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.testapp;
+package com.EC327.Schedulr;
 
 public final class R {
     public static final class attr {

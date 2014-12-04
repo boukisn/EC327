@@ -1,6 +1,6 @@
 package com.EC327.Schedulr;
 
-import com.example.testapp.R;
+import com.EC327.Schedulr.R;
 
 import android.app.Activity;
 import android.content.Intent;

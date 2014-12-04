@@ -1,7 +1,12 @@
-package com.example.testapp;
+package com.EC327.Schedulr;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.EC327.Schedulr.R;
+import com.EC327.Schedulr.R.id;
+import com.EC327.Schedulr.R.layout;
+import com.EC327.Schedulr.R.string;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

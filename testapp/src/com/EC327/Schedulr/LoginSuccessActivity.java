@@ -1,7 +1,12 @@
-package com.example.testapp;
+package com.EC327.Schedulr;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import com.EC327.Schedulr.R;
+import com.EC327.Schedulr.R.id;
+import com.EC327.Schedulr.R.layout;
+import com.EC327.Schedulr.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
