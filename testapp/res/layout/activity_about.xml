@@ -12,6 +12,7 @@
         android:layout_height="206dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="167dp"
         android:scaleType="centerCrop"
         android:src="@drawable/instruction_image" />
 
@@ -21,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView1"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="87dp"
         android:layout_weight="0.50"
         android:gravity="center_horizontal"
         android:text="Welcome to Schedulr!\n\nIf you&apos;re a first time user, here are the steps\n you will need to take to get started:\n\n1. Go to Student Link > Academics >\n Current Schedule > Graph\n2. Save the image to your computer\n3. Transfer the image to your mobile phone,\n via email or SMS etc.\n4. You are now ready to use Schedulr!"
-        android:textSize="15dp" />
+        android:textSize="25dp" />
 
 </RelativeLayout>

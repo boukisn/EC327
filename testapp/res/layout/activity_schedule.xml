@@ -10,12 +10,109 @@
     tools:context="com.example.testapp.Schedule" >
 
      <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Generate"
-        android:onClick="generate" />
+         android:id="@+id/button1"
+         android:background="@layout/custom_button"
+         style="@style/button_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="20dp"
+         android:onClick="generate"
+         android:text="Generate" />
+
+     <DatePicker
+         android:id="@+id/datePicker1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/button1"
+         android:layout_alignParentRight="true"
+         android:scaleY="0.8" 
+		 android:scaleX="0.8"
+         android:layout_marginRight="16dp" />
+
+     <DatePicker
+         android:id="@+id/datePicker2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/datePicker1"
+         android:layout_alignLeft="@+id/datePicker1"
+         android:scaleY="0.8" 
+		 android:scaleX="0.8"
+         android:layout_marginBottom="18dp" />
+
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@+id/datePicker2"
+         android:layout_marginRight="32dp"
+         android:layout_marginTop="36dp"
+         android:layout_toLeftOf="@+id/datePicker2"
+         android:text="Semester start date:"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="50dip" />
+
+     <TextView
+         android:id="@+id/TextView01"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/textView1"
+         android:layout_alignTop="@+id/datePicker1"
+         android:layout_marginTop="30dp"
+         android:text="Semester end date:"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="50dip" />
+
+     <Spinner
+         android:id="@+id/spinner1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/TextView02"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="23dp" />
+
+     <EditText
+         android:id="@+id/editText1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/TextView03"
+         android:layout_below="@+id/TextView03"
+         android:ems="10" 
+         android:textSize="50dip" />
+
+     <TextView
+         android:id="@+id/TextView02"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginTop="70dp"
+         android:text="Select your classes:"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="50dip" />
+
+     <TextView
+         android:id="@+id/TextView03"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/spinner1"
+         android:layout_marginTop="44dp"
+         android:text="Class Name:"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="50dip" />
+
+     <Button
+         android:id="@+id/button2"
+         android:background="@layout/custom_button"
+         style="@style/button_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/editText1"
+         android:layout_below="@+id/editText1"
+         android:layout_marginTop="33dp"
+         android:text="Save"
+         android:textSize="50dip" />
 
 </RelativeLayout>
