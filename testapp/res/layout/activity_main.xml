@@ -13,18 +13,28 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Start New Schedule!"
-        android:onClick="login" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="login"
+        android:text="Start New Schedule!" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
-        android:text="About This App"
-        android:onClick="goToAbout" />
+        android:layout_centerHorizontal="true"
+        android:onClick="goToAbout"
+        android:text="About This App" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        android:text="Schedulr"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
