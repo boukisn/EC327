@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.EC327.Schedulr.MainActivity" >
+    tools:context="com.example.testapp.LoginSuccessActivity" >
 
     <Button
         android:id="@+id/button1"
@@ -14,16 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Start New Schedule!"
-        android:onClick="login" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:text="About This App"
-        android:onClick="login" />
+        android:text="Upload"
+        android:onClick="upload" />
 
 </RelativeLayout>
