@@ -42,6 +42,7 @@ public class Schedule extends Activity {
 	public void generate(View view) {
     	Intent intent = new Intent(this, Done.class);
     	startActivity(intent);
+    	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 	
 	@Override
