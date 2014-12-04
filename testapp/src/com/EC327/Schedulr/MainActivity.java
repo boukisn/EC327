@@ -46,8 +46,9 @@ public class MainActivity extends Activity {
     }
     
     public void login(View view) {
-    	Intent intent = new Intent(this, Done.class);
+    	Intent intent = new Intent(this, LoginSuccessActivity.class);
     	startActivity(intent);
+    	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
     
     public void goToAbout(View view) {

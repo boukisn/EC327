@@ -44,6 +44,7 @@ public final class R {
         public static final int activity_login_success=0x7f030003;
         public static final int activity_main=0x7f030004;
         public static final int activity_schedule=0x7f030005;
+        public static final int custom_button=0x7f030006;
     }
     public static final class menu {
         public static final int done=0x7f070000;
@@ -99,5 +100,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int button_text=0x7f060002;
     }
 }

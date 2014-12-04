@@ -44,7 +44,15 @@ public class Done extends Activity {
     }
 	
 	public void another(View view) {
-    	Intent intent = new Intent(this, LoginActivity.class);
+    	Intent intent = new Intent(this, LoginSuccessActivity.class);
     	startActivity(intent);
+    	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
+	
+	@Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
 }

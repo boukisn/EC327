@@ -100,6 +100,7 @@ public class LoginSuccessActivity extends Activity {
 	                
 	                Intent intent = new Intent(this, Schedule.class);
 	            	startActivity(intent);
+	            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	            }
 	        }
 	    }
@@ -119,4 +120,11 @@ public class LoginSuccessActivity extends Activity {
 	        }
 	        else return null;
 	    }
+	    
+		@Override
+	    public void onBackPressed() {
+	        super.onBackPressed();
+	        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	    }
+
 }
