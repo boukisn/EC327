@@ -8,21 +8,15 @@ import android.view.MenuItem;
 
 import com.EC327.Schedulr.Cal;
 
-import com.example.testapp.R;
+import com.EC327.Schedulr.R;
 
 public class MainActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-    	Log.i("SHOW", " UP!!");
         super.onCreate(savedInstanceState);
-        Log.i("Active", "0");
         setContentView(R.layout.activity_main);
-        Log.i("Active", "1");
-        Cal cal = new Cal("nodroids327@gmail.com", this);
-        Log.i("Active", "2");
-        cal.addEvent(this);
-        Log.i("Active", "3");
+        
     }
 
     @Override
