@@ -60,7 +60,7 @@ public class Imagereader extends Activity{
 		}
 	}
 		
-	public void output(int dimen){// reads off pixels on a pixel array
+	/*public void output(int dimen){// reads off pixels on a pixel array
 		
 		if (dimen == 1)
 		{
@@ -106,7 +106,8 @@ public class Imagereader extends Activity{
 		}
 		
 	
-	}
+	}*/
+	
 	public void dimensionfy(){// ignore this for now
 		
 		pixel2D = new int[nheight][nwidth];
@@ -123,13 +124,11 @@ public class Imagereader extends Activity{
 	public void crop()// crops the larger image to just the graph
 	{
 		rebmp = Bitmap.createBitmap(bmp, 55, 20, width-195, height-50);
-		Log.i("height",height + "");
-		Log.i("width",width + "");
 		nheight = rebmp.getHeight();
 		nwidth =  rebmp.getWidth();// 436 pixels about 62 pixels a day
 	}
 	
-	public void getRectangle()//gets rectangle(2 hour pink rectangle)
+	/*public void getRectangle()//gets rectangle(2 hour pink rectangle)
 	{
 		rect = Bitmap.createBitmap(bmp, 120, 140, width-565, height-363);
 		height = rect.getHeight();
@@ -137,7 +136,7 @@ public class Imagereader extends Activity{
 		Log.i("height",height + "");
 		Log.i("width",width + "");
 	
-	}
+	}*/
 	
 	public void getPixels(Bitmap img)// will put pixels of a certain bitmap int the pixar array
 	{
@@ -147,7 +146,7 @@ public class Imagereader extends Activity{
 		//ArrayList<Integer> colors = new ArrayList<Integer>();
 	}
 	
-	public void get2Darray()
+	/*public void get2Darray()
 	{
 		int count = 0;
 		int count1 = 0;
@@ -202,7 +201,7 @@ public class Imagereader extends Activity{
 				
 			}
 		}
-	}
+	}*/
 	
 	public void getHMday()//creates hashmap for each day with how many of each color pixel in each line
 	{
@@ -316,6 +315,7 @@ public class Imagereader extends Activity{
 		}
 	}
 	
+	/*
 	public void outputMap (HashMap<Integer, Integer> m1)
 	{
 		Set<Integer> keyset = m1.keySet();
@@ -324,7 +324,7 @@ public class Imagereader extends Activity{
 			Log.i(s+ "", m1.get(s)+"");
 		}
 		
-	}
+	}*/
 	
 	public void get_times()
 	{
