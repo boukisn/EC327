@@ -36,8 +36,7 @@ public class Cal {
 	String accountName = null;
 	String ownerName = null;
 	
-	//Event IDs list - keeps track of what events have been added
-	//and their IDs
+	//Event IDs list - keeps track of what events have been added and their IDs
 	ArrayList<Long> eventIDs = new ArrayList<Long>();
 
 	Cal(String googleAccount, Activity activity)
@@ -93,8 +92,7 @@ public class Cal {
 		values.put(Events.EVENT_TIMEZONE, "America/New York");
 		Uri uri = cr.insert(Events.CONTENT_URI, values);
 		eventIDs.add(Long.parseLong(uri.getLastPathSegment()));
-	}
-	
+	}	
 }
 
 
