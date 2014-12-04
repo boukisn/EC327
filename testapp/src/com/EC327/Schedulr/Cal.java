@@ -40,8 +40,11 @@ public class Cal {
 	//and their IDs
 	ArrayList<Long> eventIDs = new ArrayList<Long>();
 
-	Cal(String gmailAccount, Activity activity)
+	Cal(String googleAccount, Activity activity)
 	{
+		String splitGoogleAccount[] = googleAccount.split("."); 
+		String accountType = splitGoogleAccount[2] + "." + splitGoogleAccount[0];
+		
 		//Run query
 		Cursor cur = null;
 		ContentResolver cr = activity.getContentResolver();
@@ -49,7 +52,7 @@ public class Cal {
 		String selection = "((" + Calendars.ACCOUNT_NAME + " = ?) AND (" 
 		                     + Calendars.ACCOUNT_TYPE + " = ?) AND ("
 		                     + Calendars.OWNER_ACCOUNT + " = ?))";
-		String[] selectionArgs = new String[] {gmailAccount, "com.google", gmailAccount}; 
+		String[] selectionArgs = new String[] {googleAccount, accountType, googleAccount}; 
 		//Submit the query and get a Cursor object back. 
 		cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs, null);
 		//Use the cursor to step through the returned records
@@ -65,7 +68,9 @@ public class Cal {
 		}
 	}
 	
-	public void addEvent(String className, DatePicker startDate, int startHour, int startMin, DatePicker endDate, int endHour, int endMin, Activity active)
+	public void addEvent(String className, DatePicker 
+			startDate, int startHour, int startMin, DatePicker 
+			endDate, int endHour, int endMin, Activity active)
 	{
 		long startMillis = 0; 
 		long endMillis = 0;   
