@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#FFD2B2"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFD2B2"
     android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="206dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/instruction_image" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="170dp"
-        android:layout_height="33dp"
-        android:text="Blah blah blah blah blah " />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="14dp"
+        android:layout_weight="0.50"
+        android:gravity="center_horizontal"
+        android:text="Welcome to Schedulr!\n\nIf you&apos;re a first time user, here are the steps\n you will need to take to get started:\n\n1. Go to Student Link > Academics >\n Current Schedule > Graph\n2. Save the image to your computer\n3. Transfer the image to your mobile phone,\n via email or SMS etc.\n4. You are now ready to use Schedulr!"
+        android:textSize="15dp" />
 
-</LinearLayout>
+</RelativeLayout>
