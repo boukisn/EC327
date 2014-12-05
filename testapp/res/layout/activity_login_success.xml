@@ -54,6 +54,6 @@
          android:text="Success ✓"
          android:textAppearance="?android:attr/textAppearanceLarge"
          android:textColor="#009933"
-         android:textStyle="normal" />
+         android:textStyle="bold" />
 
 </RelativeLayout>
