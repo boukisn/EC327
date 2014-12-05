@@ -19,6 +19,7 @@ import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 public class LoginSuccessActivity extends Activity {
 
@@ -98,9 +99,12 @@ public class LoginSuccessActivity extends Activity {
 					}
 	                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
 	                
-	                Intent intent = new Intent(this, Schedule.class);
-	            	startActivity(intent);
-	            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	                ImageView iv = (ImageView)findViewById(R.id.imageView1);
+	                iv.setImageBitmap(yourSelectedImage);
+	                
+	                //Intent intent = new Intent(this, Schedule.class);
+	            	//startActivity(intent);
+	            	//overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	            }
 	        }
 	    }
