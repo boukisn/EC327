@@ -1,5 +1,7 @@
 package com.EC327.Schedulr;
 
+import java.util.ArrayList;
+
 import com.EC327.Schedulr.R;
 import com.EC327.Schedulr.R.id;
 import com.EC327.Schedulr.R.layout;
@@ -11,6 +13,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class Schedule extends Activity {
 
@@ -18,6 +22,11 @@ public class Schedule extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule);
+		
+		ArrayList<String> boukis_list = getIntent().getStringArrayListExtra("boukis_list");
+		Spinner spinner = (Spinner)findViewById(R.id.spinner1);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Schedule.this, android.R.layout.simple_spinner_item, boukis_list);
+        spinner.setAdapter(dataAdapter);
 	}
 
 	@Override

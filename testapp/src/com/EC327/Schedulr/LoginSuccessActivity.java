@@ -2,6 +2,7 @@ package com.EC327.Schedulr;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import com.EC327.Schedulr.R;
 import com.EC327.Schedulr.R.id;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 
 public class LoginSuccessActivity extends Activity {
 
+	public Imagereader imageReader = new Imagereader();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +116,15 @@ public class LoginSuccessActivity extends Activity {
 	                nextButton.setVisibility(View.VISIBLE);
 	                success.setVisibility(View.VISIBLE);
 	                
+	                
+	                imageReader.bmp = yourSelectedImage;
+	                imageReader.crop();
+	                imageReader.getPixels(imageReader.rebmp);
+	                imageReader.dimensionfy();
+	                imageReader.getHMday();
+	                imageReader.get_times();
+	                imageReader.HM_to_string();
+	                
 	                ImageView iv = (ImageView)findViewById(R.id.imageView1);
 	                iv.setImageBitmap(yourSelectedImage);
 	            }
@@ -122,6 +133,8 @@ public class LoginSuccessActivity extends Activity {
 
 	    public void nextPage(View view) {
 	    	Intent intent = new Intent(this, Schedule.class);
+			ArrayList<String> boukis_list = imageReader.final_list;
+	    	intent.putStringArrayListExtra("boukis_list", boukis_list);
         	startActivity(intent);
         	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	    }
