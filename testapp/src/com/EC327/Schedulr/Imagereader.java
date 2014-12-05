@@ -22,7 +22,7 @@ public class Imagereader extends Activity{
 	
 	public Bitmap bmp;// bitmap of whole image
 	public Bitmap rebmp;//bitmap of grid
-	public Bitmap rect;//bitmap of 2 hour time period
+	//public Bitmap rect;//bitmap of 2 hour time period
 	public int height;
 	public int width;
 	public int nheight;
@@ -39,6 +39,7 @@ public class Imagereader extends Activity{
 	public HashMap<Integer, Integer> pixel_countFr = new HashMap<Integer, Integer>();
 	public HashMap<Integer, Integer> pixel_countSa = new HashMap<Integer, Integer>();
 	public HashMap<String, ArrayList<String>> day_time = new HashMap<String,ArrayList<String>>();
+	public ArrayList<String> final_list = new ArrayList<String>();
 	
 	
 	
@@ -51,13 +52,13 @@ public class Imagereader extends Activity{
 		height = bmp.getHeight();
 		width =  bmp.getWidth();
 	
-		if(bmp !=null)
+		/*if(bmp !=null)
 		{
 			pixels = new int[height*width];
 			
 			bmp.getPixels(pixels, 0, width, 0, 0, width , height );
 			//ArrayList<Integer> colors = new ArrayList<Integer>();
-		}
+		}*/
 	}
 		
 	/*public void output(int dimen){// reads off pixels on a pixel array
@@ -2566,6 +2567,24 @@ public class Imagereader extends Activity{
 } 
 	}
 	
+	
+public void HM_to_string()
+{
+	//String output;
+
+	for (String day: day_time.keySet()){
+
+        String key = day;
+        for (String f1: day_time.get(day))
+        {
+        	final_list.add(day + ": " + f1);
+        }
+          
+        
+	}
+	Log.i("Final" , final_list.toString());
+}
+
 	
 
 	

@@ -18,12 +18,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Imagereader image = new Imagereader();
-        image.pixelize();
+        image.bmp = sdas
         image.crop();
         image.getPixels(image.rebmp);
         image.dimensionfy();
         image.getHMday();
         image.get_times();
+        image.HM_to_string();
         iv = (ImageView)findViewById(R.id.imageView1);
         iv.setImageBitmap(image.rebmp);
     }
