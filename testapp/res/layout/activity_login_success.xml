@@ -29,6 +29,19 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scaleY="1.5" 
-		 android:scaleX="1.5" />
+		android:scaleX="1.5" />
+
+     <Button
+         android:id="@+id/button2"
+         style="@style/button_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/button1"
+         android:layout_alignBottom="@+id/button1"
+         android:layout_centerHorizontal="true"
+         android:background="@layout/custom_button"
+         android:onClick="nextPage"
+         android:text="Next >"
+         android:textSize="20dp" />
 
 </RelativeLayout>

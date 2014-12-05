@@ -19,14 +19,20 @@ import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class LoginSuccessActivity extends Activity {
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_success);
+		Button uploadButton = (Button) findViewById(R.id.button1);
+		Button nextButton = (Button) findViewById(R.id.button2);
+		nextButton.setVisibility(View.GONE);
+		
 	}
 
 	@Override
@@ -98,17 +104,23 @@ public class LoginSuccessActivity extends Activity {
 						e.printStackTrace();
 					}
 	                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+	                Button uploadButton = (Button) findViewById(R.id.button1);
+	        		Button nextButton = (Button) findViewById(R.id.button2);
+	                uploadButton.setVisibility(View.GONE);
+	                nextButton.setVisibility(View.VISIBLE);
 	                
 	                ImageView iv = (ImageView)findViewById(R.id.imageView1);
 	                iv.setImageBitmap(yourSelectedImage);
-	                
-	                //Intent intent = new Intent(this, Schedule.class);
-	            	//startActivity(intent);
-	            	//overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	            }
 	        }
 	    }
 
+	    public void nextPage(View view) {
+	    	Intent intent = new Intent(this, Schedule.class);
+        	startActivity(intent);
+        	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	    }
+	    
 	    //UPDATED!
 	    public String getPath(Uri uri) {
 	        String[] projection = { MediaStore.Images.Media.DATA };
