@@ -44,4 +44,16 @@
          android:text="Next >"
          android:textSize="20dp" />
 
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/imageView1"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="36dp"
+         android:text="Success ✓"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textColor="#009933"
+         android:textStyle="normal" />
+
 </RelativeLayout>

@@ -27,16 +27,17 @@ public final class R {
         public static final int phone_screenshot=0x7f020002;
     }
     public static final class id {
+        public static final int EditText01=0x7f080010;
         public static final int RelativeLayout1=0x7f080000;
-        public static final int TextView01=0x7f08000e;
-        public static final int TextView02=0x7f080010;
-        public static final int TextView03=0x7f080012;
-        public static final int action_settings=0x7f080013;
+        public static final int TextView01=0x7f080013;
+        public static final int TextView02=0x7f08000e;
+        public static final int TextView03=0x7f08000d;
+        public static final int TextView04=0x7f080012;
+        public static final int action_settings=0x7f080014;
         public static final int button1=0x7f080003;
         public static final int button2=0x7f080004;
-        public static final int datePicker1=0x7f08000c;
-        public static final int datePicker2=0x7f08000d;
-        public static final int editText1=0x7f080011;
+        public static final int editText1=0x7f08000c;
+        public static final int editText2=0x7f080011;
         public static final int email=0x7f080008;
         public static final int email_login_form=0x7f080007;
         public static final int email_sign_in_button=0x7f08000b;

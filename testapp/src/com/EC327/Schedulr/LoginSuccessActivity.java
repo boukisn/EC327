@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LoginSuccessActivity extends Activity {
 
@@ -31,7 +32,9 @@ public class LoginSuccessActivity extends Activity {
 		setContentView(R.layout.activity_login_success);
 		Button uploadButton = (Button) findViewById(R.id.button1);
 		Button nextButton = (Button) findViewById(R.id.button2);
+		TextView success = (TextView) findViewById(R.id.textView1);
 		nextButton.setVisibility(View.GONE);
+		success.setVisibility(View.GONE);
 		
 	}
 
@@ -106,8 +109,10 @@ public class LoginSuccessActivity extends Activity {
 	                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
 	                Button uploadButton = (Button) findViewById(R.id.button1);
 	        		Button nextButton = (Button) findViewById(R.id.button2);
+	        		TextView success = (TextView) findViewById(R.id.textView1);
 	                uploadButton.setVisibility(View.GONE);
 	                nextButton.setVisibility(View.VISIBLE);
+	                success.setVisibility(View.VISIBLE);
 	                
 	                ImageView iv = (ImageView)findViewById(R.id.imageView1);
 	                iv.setImageBitmap(yourSelectedImage);
