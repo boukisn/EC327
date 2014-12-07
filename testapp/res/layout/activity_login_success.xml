@@ -27,9 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:scaleY="1.2" 
-		android:scaleX="1.2" />
+        android:layout_centerVertical="true" />
 
      <TextView
          android:id="@+id/textView1"
@@ -70,9 +68,9 @@
          style="@style/button_text"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
+         android:layout_below="@+id/TextView02"
          android:layout_centerHorizontal="true"
-         android:layout_marginBottom="10dp"
+         android:layout_marginTop="14dp"
          android:background="@layout/custom_button"
          android:onClick="nextPage"
          android:text="Next"
@@ -83,8 +81,8 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentTop="true"
+         android:layout_marginTop="57dp"
          android:layout_centerHorizontal="true"
-         android:layout_marginTop="43dp"
          android:text="Almost there..."
          android:textAppearance="?android:attr/textAppearanceLarge"
          android:textColor="#6A2E4D"

@@ -105,14 +105,19 @@ public class LoginSuccessActivity extends Activity {
 	        if (resultCode == RESULT_OK) {
 	            if (requestCode == SELECT_PICTURE) {
 	                Uri selectedImageUri = data.getData();
+	                Log.i("help!", selectedImageUri + "");
 
 	                //OI FILE Manager
 	                filemanagerstring = selectedImageUri.getPath();
+	                Log.i("help!!", filemanagerstring+ "");
+	                
 
-	                //MEDIA GALLERY
+	                //CHECK IF NULL
 	                selectedImagePath = getPath(selectedImageUri);
+	                Log.i("help!!1", selectedImagePath + "");
 	                String delims = "[.]";
 		    		String[] tokens = selectedImagePath.split(delims);
+		    		Log.i("help!!!!", selectedImagePath + "");
 		    		if(tokens[1].equals("gif"))
 		    		{
 		                //DEBUG PURPOSE - you can delete this if you want
