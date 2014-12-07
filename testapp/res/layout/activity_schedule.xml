@@ -92,9 +92,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/EditText01"
         android:layout_alignLeft="@+id/EditText01"
-        android:text="End date (MM/DD/YYYY):"
+        android:text="Semester end date (MM/DD/YYYY):"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20dip" />
+        android:textSize="15dip" />
 
     <EditText
         android:id="@+id/editText2"
@@ -110,9 +110,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText2"
         android:layout_alignLeft="@+id/button2"
-        android:text="Start date (MM/DD/YYYY):"
+        android:text="Semester start date (MM/DD/YYYY):"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20dip" />
+        android:textSize="15dip" />
 
     <TextView
         android:id="@+id/textView1"

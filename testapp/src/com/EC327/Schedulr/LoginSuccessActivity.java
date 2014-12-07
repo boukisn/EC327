@@ -30,6 +30,7 @@ import android.widget.TextView;
 public class LoginSuccessActivity extends Activity {
 
 	public Imagereader imageReader = new Imagereader();
+	private static boolean isInvalid = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,13 @@ public class LoginSuccessActivity extends Activity {
 		EditText email = (EditText) findViewById(R.id.editText1);
 		nextButton.setVisibility(View.GONE);
 		success.setVisibility(View.GONE);
+		System.out.println("isInvalid " + isInvalid);
+		
+		if(isInvalid == false)
+			invalid.setVisibility(View.GONE);
+		else
+			invalid.setVisibility(View.VISIBLE);
+		
 		email.setVisibility(View.GONE);
 		
 	}
@@ -118,6 +126,7 @@ public class LoginSuccessActivity extends Activity {
 	                Button uploadButton = (Button) findViewById(R.id.button1);
 	        		Button nextButton = (Button) findViewById(R.id.button2);
 	        		TextView success = (TextView) findViewById(R.id.textView1);
+	        		TextView invalid = (TextView) findViewById(R.id.TextView01);
 	                
 	                
 	                imageReader.bmp = yourSelectedImage;
@@ -136,6 +145,7 @@ public class LoginSuccessActivity extends Activity {
 	                	uploadButton.setVisibility(View.GONE);
 		                success.setVisibility(View.VISIBLE);
 		                nextButton.setVisibility(View.VISIBLE);
+		                invalid.setVisibility(View.GONE);
 		                
 		                EditText email = (EditText) findViewById(R.id.editText1);
 		                email.setVisibility(View.VISIBLE);
@@ -147,6 +157,7 @@ public class LoginSuccessActivity extends Activity {
 	                	Intent intent = getIntent();
 	                	finish();
 	                	startActivity(intent);
+	                	isInvalid = true;
 	                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	                }
 	                
