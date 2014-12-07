@@ -1,6 +1,10 @@
 package com.EC327.Schedulr;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import com.EC327.Schedulr.R;
@@ -11,6 +15,8 @@ import com.EC327.Schedulr.R.menu;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
+import android.provider.CalendarContract.Events;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +50,13 @@ public class Schedule extends Activity implements OnItemSelectedListener{
         {
         	eventList.put(boukis_list.get(i), "");
         }
+        
+        int classCounter = 1;
+		for(String key : eventList.keySet())
+    	{
+    		eventList.put(key, "Class " + classCounter);
+    		classCounter++;
+    	}
 	}
 
 	@Override
@@ -67,6 +80,21 @@ public class Schedule extends Activity implements OnItemSelectedListener{
 	
 	public void generate(View view) {
     	Intent intent = new Intent(this, Done.class);
+    	EditText startDate = (EditText)findViewById(R.id.editText2);
+		String startDateString = startDate.getText().toString();
+		
+		EditText endDate = (EditText)findViewById(R.id.EditText01);
+		String endDateString = endDate.getText().toString();
+		
+		String googleAccount = getIntent().getStringExtra("googleAccount");
+		Cal eventCreator = new Cal(googleAccount, this);
+		
+		
+        
+    	for(String key : eventList.keySet())
+    	{
+    		eventCreator.addEvent(eventList.get(key), key, startDateString, endDateString, this);
+    	}
     	startActivity(intent);
     	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
@@ -91,7 +119,7 @@ public class Schedule extends Activity implements OnItemSelectedListener{
 		className.setText(eventList.get(selection), TextView.BufferType.EDITABLE);
 		
 		TextView saved = (TextView)findViewById(R.id.textView1);
-		if(className.getText().toString().equals("") == false)
+		if(className.getText().toString().equals("") == false && className.getText().toString().substring(0, 5).equals("Class") == false)
 		{
 			saved.setVisibility(View.VISIBLE);
 		}

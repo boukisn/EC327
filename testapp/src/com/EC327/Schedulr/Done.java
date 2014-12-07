@@ -6,11 +6,16 @@ import com.EC327.Schedulr.R.layout;
 import com.EC327.Schedulr.R.menu;
 
 import android.app.Activity;
+import android.content.ContentUris;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class Done extends Activity {
 
@@ -18,6 +23,10 @@ public class Done extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_done);
+		String fontPath = "OpenSans-Light.ttf";
+        TextView txtTitle = (TextView) findViewById(R.id.textView1);
+        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        txtTitle.setTypeface(tf);
 	}
 
 	@Override
@@ -40,7 +49,12 @@ public class Done extends Activity {
 	}
 	
 	public void open(View view) {
-    	//...
+		long startMillis = 0;
+		Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+		builder.appendPath("time");
+		ContentUris.appendId(builder, startMillis);
+		Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
+		startActivity(intent);
     }
 	
 	public void another(View view) {
@@ -48,6 +62,7 @@ public class Done extends Activity {
     	startActivity(intent);
     	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
+	
 	
 	@Override
     public void onBackPressed() {

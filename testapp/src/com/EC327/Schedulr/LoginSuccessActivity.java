@@ -10,6 +10,7 @@ import com.EC327.Schedulr.R.layout;
 import com.EC327.Schedulr.R.menu;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -17,10 +18,12 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.CalendarContract.Calendars;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,8 +38,11 @@ public class LoginSuccessActivity extends Activity {
 		Button uploadButton = (Button) findViewById(R.id.button1);
 		Button nextButton = (Button) findViewById(R.id.button2);
 		TextView success = (TextView) findViewById(R.id.textView1);
+		TextView invalid = (TextView) findViewById(R.id.TextView01);
+		EditText email = (EditText) findViewById(R.id.editText1);
 		nextButton.setVisibility(View.GONE);
 		success.setVisibility(View.GONE);
+		email.setVisibility(View.GONE);
 		
 	}
 
@@ -112,9 +118,6 @@ public class LoginSuccessActivity extends Activity {
 	                Button uploadButton = (Button) findViewById(R.id.button1);
 	        		Button nextButton = (Button) findViewById(R.id.button2);
 	        		TextView success = (TextView) findViewById(R.id.textView1);
-	                uploadButton.setVisibility(View.GONE);
-	                nextButton.setVisibility(View.VISIBLE);
-	                success.setVisibility(View.VISIBLE);
 	                
 	                
 	                imageReader.bmp = yourSelectedImage;
@@ -127,16 +130,64 @@ public class LoginSuccessActivity extends Activity {
 	                
 	                ImageView iv = (ImageView)findViewById(R.id.imageView1);
 	                iv.setImageBitmap(yourSelectedImage);
+	                
+	                if ((imageReader.bmp.getHeight() == 412) && (imageReader.bmp.getWidth() == 631))
+	                {
+	                	uploadButton.setVisibility(View.GONE);
+		                success.setVisibility(View.VISIBLE);
+		                nextButton.setVisibility(View.VISIBLE);
+		                
+		                EditText email = (EditText) findViewById(R.id.editText1);
+		                email.setVisibility(View.VISIBLE);
+		                email.setText("Enter Google account email:");
+	                	
+	                }
+	                else
+	                {
+	                	Intent intent = getIntent();
+	                	finish();
+	                	startActivity(intent);
+	                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	                }
+	                
 	            }
 	        }
 	    }
 
 	    public void nextPage(View view) {
 	    	Intent intent = new Intent(this, Schedule.class);
-			ArrayList<String> boukis_list = imageReader.final_list;
-	    	intent.putStringArrayListExtra("boukis_list", boukis_list);
-        	startActivity(intent);
-        	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	    	EditText email = (EditText) findViewById(R.id.editText1);
+	    	String googleAccount = email.getText().toString();
+	    	String accountType = "com.google";
+     		
+             String[] EVENT_PROJECTION = new String[] {
+            	 Calendars._ID,                           // 0
+            	 Calendars.ACCOUNT_NAME,                  // 1
+            	 Calendars.CALENDAR_DISPLAY_NAME,         // 2
+            	 Calendars.OWNER_ACCOUNT                  // 3
+            	};
+             
+     		//Run query
+     		Cursor cur = null;
+     		ContentResolver cr = this.getContentResolver();
+     		Uri uri = Calendars.CONTENT_URI;
+     		String selection = "((" + Calendars.ACCOUNT_NAME + " = ?) AND (" 
+     		                     + Calendars.ACCOUNT_TYPE + " = ?) AND ("
+     		                     + Calendars.OWNER_ACCOUNT + " = ?))";
+     		String[] selectionArgs = new String[] {googleAccount, accountType, googleAccount}; 
+     		//Submit the query and get a Cursor object back. 
+     		cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs, null);
+     		//Use the cursor to step through the returned records
+     		if (cur.moveToFirst() == false)
+     			email.setText("Invalid email");
+     		
+     		else{
+     			ArrayList<String> boukis_list = imageReader.final_list;
+	    		intent.putStringArrayListExtra("boukis_list", boukis_list);
+	    		intent.putExtra("googleAccount", googleAccount);
+        		startActivity(intent);
+        		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+     		}
 	    }
 	    
 	    //UPDATED!
