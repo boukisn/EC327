@@ -31,19 +31,6 @@
         android:scaleY="1.2" 
 		android:scaleX="1.2" />
 
-     <Button
-         android:id="@+id/button2"
-         style="@style/button_text"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBaseline="@+id/button1"
-         android:layout_alignBottom="@+id/button1"
-         android:layout_centerHorizontal="true"
-         android:background="@layout/custom_button"
-         android:onClick="nextPage"
-         android:text="Next >"
-         android:textSize="20dp" />
-
      <TextView
          android:id="@+id/textView1"
          android:layout_width="wrap_content"
@@ -77,5 +64,30 @@
          android:textAppearance="?android:attr/textAppearanceLarge"
          android:textColor="#A00000"
          android:textStyle="bold" />
+
+     <Button
+         android:id="@+id/button2"
+         style="@style/button_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="10dp"
+         android:background="@layout/custom_button"
+         android:onClick="nextPage"
+         android:text="Next"
+         android:textSize="20dp" />
+
+     <TextView
+         android:id="@+id/TextView02"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="43dp"
+         android:text="Almost there..."
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textColor="#6A2E4D"
+         android:textSize="30dp" />
 
 </RelativeLayout>

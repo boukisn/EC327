@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -41,9 +42,16 @@ public class LoginSuccessActivity extends Activity {
 		Button nextButton = (Button) findViewById(R.id.button2);
 		TextView success = (TextView) findViewById(R.id.textView1);
 		TextView invalid = (TextView) findViewById(R.id.TextView01);
+		TextView almostThere = (TextView) findViewById(R.id.TextView02);
+		String fontPath = "OpenSans-Light.ttf";
+        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+        success.setTypeface(tf);
+        invalid.setTypeface(tf);
+        almostThere.setTypeface(tf);
 		EditText email = (EditText) findViewById(R.id.editText1);
 		nextButton.setVisibility(View.GONE);
 		success.setVisibility(View.GONE);
+		almostThere.setVisibility(View.GONE);
 		System.out.println("isInvalid " + isInvalid);
 		
 		if(isInvalid == false)
@@ -135,6 +143,7 @@ public class LoginSuccessActivity extends Activity {
 		        		Button nextButton = (Button) findViewById(R.id.button2);
 		        		TextView success = (TextView) findViewById(R.id.textView1);
 		        		TextView invalid = (TextView) findViewById(R.id.TextView01);
+		        		TextView almostThere = (TextView) findViewById(R.id.TextView02);
 		                
 		                
 		                imageReader.bmp = yourSelectedImage;
@@ -154,6 +163,7 @@ public class LoginSuccessActivity extends Activity {
 		                	uploadButton.setVisibility(View.GONE);
 			                success.setVisibility(View.VISIBLE);
 			                nextButton.setVisibility(View.VISIBLE);
+			                almostThere.setVisibility(View.VISIBLE);
 			                invalid.setVisibility(View.GONE);
 			                
 			                EditText email = (EditText) findViewById(R.id.editText1);
@@ -178,7 +188,6 @@ public class LoginSuccessActivity extends Activity {
 		            	finish();
 		            	startActivity(intent);
 		            	isInvalid = true;
-		            	System.out.println("******************************** test ******************************");
 		            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 			        }
 		        }
