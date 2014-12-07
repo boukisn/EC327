@@ -33,6 +33,7 @@ public class LoginSuccessActivity extends Activity {
 
 	public Imagereader imageReader = new Imagereader();
 	private static boolean isInvalid = false;
+	private static boolean isGal = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +44,27 @@ public class LoginSuccessActivity extends Activity {
 		TextView success = (TextView) findViewById(R.id.textView1);
 		TextView invalid = (TextView) findViewById(R.id.TextView01);
 		TextView almostThere = (TextView) findViewById(R.id.TextView02);
+		TextView galleryError= (TextView) findViewById(R.id.TextView03);
 		String fontPath = "OpenSans-Light.ttf";
         Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
         success.setTypeface(tf);
         invalid.setTypeface(tf);
         almostThere.setTypeface(tf);
+        galleryError.setTypeface(tf);
 		EditText email = (EditText) findViewById(R.id.editText1);
 		nextButton.setVisibility(View.GONE);
 		success.setVisibility(View.GONE);
 		almostThere.setVisibility(View.GONE);
-		System.out.println("isInvalid " + isInvalid);
+		galleryError.setVisibility(View.GONE);
 		
 		if(isInvalid == false)
 			invalid.setVisibility(View.GONE);
 		else
 			invalid.setVisibility(View.VISIBLE);
+		if(isGal == false)
+			galleryError.setVisibility(View.GONE);
+		else
+			galleryError.setVisibility(View.VISIBLE);
 		
 		email.setVisibility(View.GONE);
 		
@@ -83,6 +90,7 @@ public class LoginSuccessActivity extends Activity {
 	}
 	public void upload(View view) {
 		isInvalid = false;
+		isGal = false;
 		Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -110,93 +118,115 @@ public class LoginSuccessActivity extends Activity {
 	                //OI FILE Manager
 	                filemanagerstring = selectedImageUri.getPath();
 	                Log.i("help!!", filemanagerstring+ "");
+	                String fileDelims = "[/]";
+	                String[] fileTokens = filemanagerstring.split(fileDelims);
+	                
+	                Log.i("blaze", fileTokens[1] + "");
+	                if( fileTokens[1].equals("external") == true)
+	                {
+	                	
 	                
 
-	                //CHECK IF NULL
-	                selectedImagePath = getPath(selectedImageUri);
-	                Log.i("help!!1", selectedImagePath + "");
-	                String delims = "[.]";
-		    		String[] tokens = selectedImagePath.split(delims);
-		    		Log.i("help!!!!", selectedImagePath + "");
-		    		if(tokens[1].equals("gif"))
-		    		{
-		                //DEBUG PURPOSE - you can delete this if you want
-		                if(selectedImagePath!=null)
-		                    System.out.println(selectedImagePath);
-		                else System.out.println("selectedImagePath is null");
-		                if(filemanagerstring!=null)
-		                    System.out.println(filemanagerstring);
-		                else System.out.println("filemanagerstring is null");
-	
-		                //NOW WE HAVE OUR WANTED STRING
-		                if(selectedImagePath!=null)
-		                    System.out.println("selectedImagePath is the right one for you!");
-		                else
-		                    System.out.println("filemanagerstring is the right one for you!");
+		                //CHECK IF NULL
+		                selectedImagePath = getPath(selectedImageUri);
 		                
-		                InputStream imageStream = null;
-						try {
-							imageStream = getContentResolver().openInputStream(selectedImageUri);
-						} catch (FileNotFoundException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						Log.i("fun", selectedImagePath + "");
-						
-			    		
-		                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
-		                Button uploadButton = (Button) findViewById(R.id.button1);
-		        		Button nextButton = (Button) findViewById(R.id.button2);
-		        		TextView success = (TextView) findViewById(R.id.textView1);
-		        		TextView invalid = (TextView) findViewById(R.id.TextView01);
-		        		TextView almostThere = (TextView) findViewById(R.id.TextView02);
-		                
-		                
-		                imageReader.bmp = yourSelectedImage;
-		                imageReader.crop();
-		                imageReader.getPixels(imageReader.rebmp);
-		                imageReader.dimensionfy();
-		                imageReader.getHMday();
-		                imageReader.get_times();
-		                imageReader.HM_to_string();
-		                
-		                ImageView iv = (ImageView)findViewById(R.id.imageView1);
-		                iv.setImageBitmap(yourSelectedImage);
-		                
-		                
-		                if ((imageReader.bmp.getHeight() == 412) && (imageReader.bmp.getWidth() == 631) )
-		                {
-		                	uploadButton.setVisibility(View.GONE);
-			                success.setVisibility(View.VISIBLE);
-			                nextButton.setVisibility(View.VISIBLE);
-			                almostThere.setVisibility(View.VISIBLE);
-			                invalid.setVisibility(View.GONE);
+		                Log.i("help!!1", selectedImagePath + "");
+		                String delims = "[.]";
+			    		String[] tokens = selectedImagePath.split(delims);
+			    		Log.i("help!!!!", selectedImagePath + "");
+			    		if(tokens[1].equals("gif"))
+			    		{
+			                //DEBUG PURPOSE - you can delete this if you want
+			                if(selectedImagePath!=null)
+			                    System.out.println(selectedImagePath);
+			                else System.out.println("selectedImagePath is null");
+			                if(filemanagerstring!=null)
+			                    System.out.println(filemanagerstring);
+			                else System.out.println("filemanagerstring is null");
+		
+			                //NOW WE HAVE OUR WANTED STRING
+			                if(selectedImagePath!=null)
+			                    System.out.println("selectedImagePath is the right one for you!");
+			                else
+			                    System.out.println("filemanagerstring is the right one for you!");
 			                
-			                EditText email = (EditText) findViewById(R.id.editText1);
-			                email.setVisibility(View.VISIBLE);
-			                email.setText("Enter Google account email:");
+			                InputStream imageStream = null;
+							try {
+								imageStream = getContentResolver().openInputStream(selectedImageUri);
+							} catch (FileNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							Log.i("fun", selectedImagePath + "");
+							
+				    		
+			                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+			                Button uploadButton = (Button) findViewById(R.id.button1);
+			        		Button nextButton = (Button) findViewById(R.id.button2);
+			        		TextView success = (TextView) findViewById(R.id.textView1);
+			        		TextView invalid = (TextView) findViewById(R.id.TextView01);
+			        		TextView almostThere = (TextView) findViewById(R.id.TextView02);
+			        		TextView galleryError= (TextView) findViewById(R.id.TextView03);
 		                	
-		                }
-		                else
-		                {
-		                	Intent intent = getIntent();
-		                	finish();
-		                	startActivity(intent);
-		                	isInvalid = true;
-		                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-		                }
-		                
-		                
-		            }
-		    		else
-			        {
-			        	Intent intent = getIntent();
-		            	finish();
-		            	startActivity(intent);
-		            	isInvalid = true;
-		            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+			                
+			                imageReader.bmp = yourSelectedImage;
+			                imageReader.crop();
+			                imageReader.getPixels(imageReader.rebmp);
+			                imageReader.dimensionfy();
+			                imageReader.getHMday();
+			                imageReader.get_times();
+			                imageReader.HM_to_string();
+			                
+			                ImageView iv = (ImageView)findViewById(R.id.imageView1);
+			                iv.setImageBitmap(yourSelectedImage);
+			                
+			                
+			                if ((imageReader.bmp.getHeight() == 412) && (imageReader.bmp.getWidth() == 631) )
+			                {
+			                	uploadButton.setVisibility(View.GONE);
+				                success.setVisibility(View.VISIBLE);
+				                nextButton.setVisibility(View.VISIBLE);
+				                almostThere.setVisibility(View.VISIBLE);
+				                invalid.setVisibility(View.GONE);
+				                galleryError.setVisibility(View.GONE);
+				                
+				                EditText email = (EditText) findViewById(R.id.editText1);
+				                email.setVisibility(View.VISIBLE);
+				                email.setText("Enter Google account email:");
+			                	
+			                }
+			                else
+			                {
+			                	Intent intent = getIntent();
+			                	finish();
+			                	startActivity(intent);
+			                	isInvalid = true;
+			                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+			                }
+			                
+			                
+			            }
+			    		else
+				        {
+				        	Intent intent = getIntent();
+			            	finish();
+			            	startActivity(intent);
+			            	isInvalid = true;
+			            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+				        }
 			        }
-		        }
+	                else
+	                {
+		                Log.i("blaze", "idk");
+	                	TextView galleryError= (TextView) findViewById(R.id.TextView03);
+	                	galleryError.setVisibility(View.VISIBLE);
+	                	Intent intent = getIntent();
+	                	finish();
+	                	isGal = true;
+	                	startActivity(intent);
+	                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	                }
+	            }
 	        }
 	        
 	    }
