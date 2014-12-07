@@ -73,7 +73,7 @@
          android:layout_height="wrap_content"
          android:layout_above="@+id/button1"
          android:layout_centerHorizontal="true"
-         android:text="Invalid image size"
+         android:text="Invalid image"
          android:textAppearance="?android:attr/textAppearanceLarge"
          android:textColor="#A00000"
          android:textStyle="bold" />

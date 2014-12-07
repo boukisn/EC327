@@ -19,6 +19,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.CalendarContract.Calendars;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -91,6 +92,7 @@ public class LoginSuccessActivity extends Activity {
 	    //UPDATED
 	    @Override
 	    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    	System.out.println("**********************ASdfasdfa************************");
 	        if (resultCode == RESULT_OK) {
 	            if (requestCode == SELECT_PICTURE) {
 	                Uri selectedImageUri = data.getData();
@@ -100,69 +102,88 @@ public class LoginSuccessActivity extends Activity {
 
 	                //MEDIA GALLERY
 	                selectedImagePath = getPath(selectedImageUri);
-
-	                //DEBUG PURPOSE - you can delete this if you want
-	                if(selectedImagePath!=null)
-	                    System.out.println(selectedImagePath);
-	                else System.out.println("selectedImagePath is null");
-	                if(filemanagerstring!=null)
-	                    System.out.println(filemanagerstring);
-	                else System.out.println("filemanagerstring is null");
-
-	                //NOW WE HAVE OUR WANTED STRING
-	                if(selectedImagePath!=null)
-	                    System.out.println("selectedImagePath is the right one for you!");
-	                else
-	                    System.out.println("filemanagerstring is the right one for you!");
-	                
-	                InputStream imageStream = null;
-					try {
-						imageStream = getContentResolver().openInputStream(selectedImageUri);
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
-	                Button uploadButton = (Button) findViewById(R.id.button1);
-	        		Button nextButton = (Button) findViewById(R.id.button2);
-	        		TextView success = (TextView) findViewById(R.id.textView1);
-	        		TextView invalid = (TextView) findViewById(R.id.TextView01);
-	                
-	                
-	                imageReader.bmp = yourSelectedImage;
-	                imageReader.crop();
-	                imageReader.getPixels(imageReader.rebmp);
-	                imageReader.dimensionfy();
-	                imageReader.getHMday();
-	                imageReader.get_times();
-	                imageReader.HM_to_string();
-	                
-	                ImageView iv = (ImageView)findViewById(R.id.imageView1);
-	                iv.setImageBitmap(yourSelectedImage);
-	                
-	                if ((imageReader.bmp.getHeight() == 412) && (imageReader.bmp.getWidth() == 631))
-	                {
-	                	uploadButton.setVisibility(View.GONE);
-		                success.setVisibility(View.VISIBLE);
-		                nextButton.setVisibility(View.VISIBLE);
-		                invalid.setVisibility(View.GONE);
+	                String delims = "[.]";
+		    		String[] tokens = selectedImagePath.split(delims);
+		    		if(tokens[1].equals("gif"))
+		    		{
+		                //DEBUG PURPOSE - you can delete this if you want
+		                if(selectedImagePath!=null)
+		                    System.out.println(selectedImagePath);
+		                else System.out.println("selectedImagePath is null");
+		                if(filemanagerstring!=null)
+		                    System.out.println(filemanagerstring);
+		                else System.out.println("filemanagerstring is null");
+	
+		                //NOW WE HAVE OUR WANTED STRING
+		                if(selectedImagePath!=null)
+		                    System.out.println("selectedImagePath is the right one for you!");
+		                else
+		                    System.out.println("filemanagerstring is the right one for you!");
 		                
-		                EditText email = (EditText) findViewById(R.id.editText1);
-		                email.setVisibility(View.VISIBLE);
-		                email.setText("Enter Google account email:");
-	                	
-	                }
-	                else
-	                {
-	                	Intent intent = getIntent();
-	                	finish();
-	                	startActivity(intent);
-	                	isInvalid = true;
-	                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-	                }
-	                
-	            }
+		                InputStream imageStream = null;
+						try {
+							imageStream = getContentResolver().openInputStream(selectedImageUri);
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						Log.i("fun", selectedImagePath + "");
+						
+			    		
+		                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+		                Button uploadButton = (Button) findViewById(R.id.button1);
+		        		Button nextButton = (Button) findViewById(R.id.button2);
+		        		TextView success = (TextView) findViewById(R.id.textView1);
+		        		TextView invalid = (TextView) findViewById(R.id.TextView01);
+		                
+		                
+		                imageReader.bmp = yourSelectedImage;
+		                imageReader.crop();
+		                imageReader.getPixels(imageReader.rebmp);
+		                imageReader.dimensionfy();
+		                imageReader.getHMday();
+		                imageReader.get_times();
+		                imageReader.HM_to_string();
+		                
+		                ImageView iv = (ImageView)findViewById(R.id.imageView1);
+		                iv.setImageBitmap(yourSelectedImage);
+		                
+		                
+		                if ((imageReader.bmp.getHeight() == 412) && (imageReader.bmp.getWidth() == 631) )
+		                {
+		                	uploadButton.setVisibility(View.GONE);
+			                success.setVisibility(View.VISIBLE);
+			                nextButton.setVisibility(View.VISIBLE);
+			                invalid.setVisibility(View.GONE);
+			                
+			                EditText email = (EditText) findViewById(R.id.editText1);
+			                email.setVisibility(View.VISIBLE);
+			                email.setText("Enter Google account email:");
+		                	
+		                }
+		                else
+		                {
+		                	Intent intent = getIntent();
+		                	finish();
+		                	startActivity(intent);
+		                	isInvalid = true;
+		                	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+		                }
+		                
+		                
+		            }
+		    		else
+			        {
+			        	Intent intent = getIntent();
+		            	finish();
+		            	startActivity(intent);
+		            	isInvalid = true;
+		            	System.out.println("******************************** test ******************************");
+		            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+			        }
+		        }
 	        }
+	        
 	    }
 
 	    public void nextPage(View view) {
