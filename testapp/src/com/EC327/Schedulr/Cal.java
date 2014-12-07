@@ -2,6 +2,9 @@ package com.EC327.Schedulr;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -93,6 +96,45 @@ public class Cal {
 		Uri uri = cr.insert(Events.CONTENT_URI, values);
 		eventIDs.add(Long.parseLong(uri.getLastPathSegment()));
 	}	
+	
+	public void createEvents(HashMap<String,String> times, String startDate, String endDate)
+	{
+		for (String course: times.keySet())
+		{
+			String[] dayTime = course.split(":");
+			times.get(course);
+		}
+	}
+	
+	public Calendar getMillis(String startDate, String dayOfWeekStr) 
+	{
+		String[] startDateArray = startDate.split("/");
+		int year = Integer.parseInt(startDateArray[0]);
+		int month = Integer.parseInt(startDateArray[1]);
+		int day = Integer.parseInt(startDateArray[2]);
+		Calendar start = new GregorianCalendar(year, month, day);
+		int startDay = start.get(Calendar.DAY_OF_WEEK);
+		
+		int dayOfWeekInt;	
+		if (dayOfWeekStr=="Monday")
+			dayOfWeekInt=2;
+		else if (dayOfWeekStr=="Tuesday")
+			dayOfWeekInt=3;
+		else if (dayOfWeekStr=="Wednesday")
+			dayOfWeekInt=4;
+		else if (dayOfWeekStr=="Thursday")
+			dayOfWeekInt=5;
+		else //Friday
+			dayOfWeekInt=6;
+		
+		
+		
+		Date date = new Date(year, month, day, hour, min);
+		Calendar c = Calendar.getInstance();
+		c.setTime(startDate);
+		int day = c.get(Calendar.DAY_OF_MONTH)
+		
+	}
 }
 
 
