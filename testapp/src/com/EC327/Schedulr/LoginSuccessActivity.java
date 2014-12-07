@@ -82,6 +82,7 @@ public class LoginSuccessActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	public void upload(View view) {
+		isInvalid = false;
 		Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
