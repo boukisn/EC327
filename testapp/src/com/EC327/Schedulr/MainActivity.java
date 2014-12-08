@@ -18,11 +18,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //Sets font for title
         String fontPath = "OpenSans-Light.ttf";
         TextView txtTitle = (TextView) findViewById(R.id.textView1);
         Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
         txtTitle.setTypeface(tf);
-        
     }
 
 
@@ -46,12 +47,16 @@ public class MainActivity extends Activity {
     }
     
     public void login(View view) {
+    	
+    	//Move on to the upload image activity
     	Intent intent = new Intent(this, LoginSuccessActivity.class);
     	startActivity(intent);
     	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
     
     public void goToAbout(View view) {
+    	
+    	//Go to the About Page
     	Intent intent = new Intent(this, About.class);
     	startActivity(intent);
     	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

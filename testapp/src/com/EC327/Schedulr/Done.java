@@ -23,6 +23,8 @@ public class Done extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_done);
+		
+		//Set fonts
 		String fontPath = "OpenSans-Light.ttf";
         TextView txtTitle = (TextView) findViewById(R.id.textView1);
         Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
@@ -49,6 +51,8 @@ public class Done extends Activity {
 	}
 	
 	public void open(View view) {
+		
+		//Open the android Calendar application
 		long startMillis = 0;
 		Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
 		builder.appendPath("time");
@@ -58,6 +62,8 @@ public class Done extends Activity {
     }
 	
 	public void another(View view) {
+		
+		//Go back to the main menu
     	Intent intent = new Intent(this, MainActivity.class);
     	finish();
     	startActivity(intent);

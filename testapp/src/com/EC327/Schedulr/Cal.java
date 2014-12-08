@@ -78,7 +78,7 @@ public class Cal {
 	{
 		try {
 			
-    		String currName = className;
+			//Parses information in "ourDateFormat"
     		String eventDateAndTime = ourDateFormat; // "Monday: 7:00AM.11:00PM"
     		String delims = "[ ]+";
     		String[] tokens1 = eventDateAndTime.split(delims); //tokens1[0] = "Monday:", tokens1[1] = "7:00AM.11:00PM"
@@ -87,27 +87,28 @@ public class Cal {
     		String[] tokens2 = tokens1[1].split(delims); //tokens2[0] = "7:00AM", tokens2[1] = "11:00PM"
     		eventBeginTime += " ";
     		eventBeginTime += tokens2[0];//"09/14/2014 7:00AM"
-    		
-    		//"MM/dd/yyyy h:mma"
-    		
+
+    		//Get milliseconds since epoch for semester start date with start time
     		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy h:mma");
 			Date startDateBeginningTime = dateFormat.parse(eventBeginTime);
 			DateFormat startFormat = new SimpleDateFormat("EEE");
 			String dayOfWeek = startFormat.format(startDateBeginningTime);
 			long eventBeginTimeLong = startDateBeginningTime.getTime();
 			
+			//Get milliseconds since epoch for semester start date with end time
 			String eventEndTime = startDateString;
 			eventEndTime += " ";
 			eventEndTime += tokens2[1];
     		Date startDateEndTime = dateFormat.parse(eventEndTime);
-			long eventEndTimeLong = startDateEndTime.getTime();
 			
+    		//Get milliseconds since epoch for semester end date
 			SimpleDateFormat newDateFormat = new SimpleDateFormat("MM/dd/yyyy");
 			Date endDateDate = newDateFormat.parse(endDateString);
-			long rdate = endDateDate.getTime();
 			
+			//Convert day of week to given format ("Monday" > "MO", "Wednesday" > "WE", etc.)
 			String rruleDay = tokens1[0].substring(0,2).toUpperCase();
 			
+			//Algorithm for next occurrence of day of week since start date
 			long actualStartDate = 0L;
 			if(dayOfWeek.equals(rruleDay) == false)
 			{
@@ -150,17 +151,21 @@ public class Cal {
 				}
 			}
 			
+			//Duration in seconds of class
 			SimpleDateFormat format = new SimpleDateFormat("h:mma");
 			Date date1 = format.parse(tokens2[0]);
 			Date date2 = format.parse(tokens2[1]);
-			long duration = (date2.getTime() - date1.getTime()) / 1000; 
+			long duration = (date2.getTime() - date1.getTime()) / 1000;
 			
+			//For event creation formatting
 			String durationString = "P" + duration + "S";
 			
+			//Put end date in given format for event creation
 			SimpleDateFormat untilFormat = new SimpleDateFormat("yyyyMMdd");
 			endDateDate.setTime(endDateDate.getTime() + 86400000);
 			String untilString = untilFormat.format(endDateDate);
 			
+			//Create the event for the given class!
 			ContentResolver cr = active.getContentResolver();
 			ContentValues values = new ContentValues();
 			values.put(Events.DTSTART, actualStartDate);
@@ -180,11 +185,6 @@ public class Cal {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}	
-	
-
-	
 
 }
